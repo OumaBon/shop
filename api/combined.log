@@ -1,0 +1,8 @@
+{"level":"info","message":"Query: Executing (default): SELECT 1+1 AS result","timestamp":"2024-10-03T17:10:25.732Z"}
+{"level":"info","message":"Connection Establised Succefully","timestamp":"2024-10-03T17:10:25.745Z"}
+{"level":"info","message":"Query: Executing (default): SELECT 1+1 AS result","timestamp":"2024-10-03T17:16:40.466Z"}
+{"level":"info","message":"Connection Establised Succefully","timestamp":"2024-10-03T17:16:40.476Z"}
+{"level":"info","message":"Query: Executing (default): SELECT 1+1 AS result","timestamp":"2024-10-03T17:17:03.835Z"}
+{"level":"info","message":"Connection Establised Succefully","timestamp":"2024-10-03T17:17:03.849Z"}
+{"level":"info","message":"Query: Executing (default): SELECT 1+1 AS result","timestamp":"2024-10-03T17:17:08.283Z"}
+{"level":"info","message":"Connection Establised Succefully","timestamp":"2024-10-03T17:17:08.292Z"}
