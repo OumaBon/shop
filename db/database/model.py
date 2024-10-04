@@ -10,6 +10,10 @@ class User(db.Model):
     email = db.Column(db.String(45), unique=True, nullable=False, index=True)
     password_hash = db.Column(db.String(255), nullable=False)
 
+    createdAt = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)  # New column
+    updatedAt = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)  # New column
+
+
     addresses = db.relationship('Address', back_populates="user", lazy=True)
     profile = db.relationship("Profile", back_populates="user", uselist=False)
     orders = db.relationship('Order', back_populates='user', lazy=True)
