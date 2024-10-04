@@ -55,4 +55,11 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 
-export {registerUser, authUser}
+const getUsers = asyncHandler (async (req, res)=>{
+    const users = await User.findAll({
+        attributes:{exclude:['id','password_hash', 'createdAt','updatedAt']}
+    });
+    res.json({users})
+});
+
+export {registerUser, authUser, getUsers}
