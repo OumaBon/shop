@@ -1,14 +1,40 @@
-import Footer from "./components/Footer"
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Container } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { logout } from './slices/authSlice';
 
-function App() {
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const expirationTime = localStorage.getItem('expirationTime');
+    if (expirationTime) {
+      const currentTime = new Date().getTime();
+
+      if (currentTime > expirationTime) {
+        dispatch(logout());
+      }
+    }
+  }, [dispatch]);
+
   return (
-    <div className="app">
-      <h1>Welcome</h1>
-      <p>Your usage of router.route('/').get(getUsers) is perfectly fine for defining a route to fetch users. Just ensure it fits within your overall application structure and follows best practices for API design. If you need any further guidance or have additional questions, feel free to ask!</p>
-      <h2>Ensure that your API responses are consistent. If you're excluding fields in this route, consider how you handle those fields in other routes, such as when creating or updating users.</h2>
-      <Footer/>
-    </div>
-  )
-}
+    <>
+      <ToastContainer />
+      <Header />
+      <main className='py-3'>
+        <Container>
+          <Outlet />
+        </Container>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
-export default App
+export default App;
